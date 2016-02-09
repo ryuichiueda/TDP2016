@@ -7,4 +7,6 @@
 *.idx
 *.toc
 *.ind
+*.sty
 .DS_Store
+
