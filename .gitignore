@@ -1,0 +1,10 @@
+*.aux
+*.log
+*.dvi
+*.bbl
+*.blg
+*.ilg
+*.idx
+*.toc
+*.ind
+.DS_Store
