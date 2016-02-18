@@ -39,17 +39,25 @@ in home environments and to packaging of our past/future
 software/hardware as reusable and open ones.
 \end{abstract}
 
-\section{The aim of the team}
+\section{The team}
 
-CIT Brains @Home has been newly set up in November 2016
+CIT Brains @Home has been newly set up in November 2015
 by the staff and students in Department of Advanced Robotics,
 Chiba Institute of Technology.
-The aim of this team is integration of research progresses
-in our department.
+The aim of this team is integration and presentation
+of research progresses in our department.
 
-\section{Robot}
+In this paper, we describe our present preparation for
+RoboCup 2016 and for further contribution in the league.
+Our robot is introduced in Sec.~\ref{sec:robot}.
+Our interest in science and technology is
+described in Sec.~\ref{sec:contribution}.
+We conclude this description paper in Sec.~\ref{sec:conclusion}.
+
+\section{Robot}\label{sec:robot}
 The robot, which has no name, is mainly composed of a commercial mobile robot,
-two self-produced manipulators.
+two self-produced manipulators, and a head part that is composed of
+a microphone and Microsoft Kinect.
 
 \begin{figure}[h]
 	\begin{center}
@@ -63,29 +71,42 @@ two self-produced manipulators.
 \subsubsection{Mobile robot part}
 
 We use i-Cart mini\cite{icartmini} as a mobile robot part
-with some modifications. In our department, 
-this robot is also used for Tsukuba Challenge,
+with some modifications. 
+In our department, this robot is also used for Tsukuba Challenge,
 which is an annual competition on outdoor navigation of mobile robots
 held in Japan.
 Our customized robot from i-Cart mini is named ORNE
 (ORNE for Robot Navigation Engineers).
 
-Though the motors are very silent, 
+This mobile robot has two silent brushless motors.
+Under the front bumper, an UTM-30LX-EW Scanning range finder
+is attached for navigation.
+Though these motors are very silent, 
 they have an ability to make the robot move on public streets.
 This mobile robot has two drive wheels whose diameter are 155[mm], 
 and one rear caster whose diameter is 100[mm].
 Each of the drive wheel is connected to a slient brushless motor.
 
-Under the front bumper, an UTM-30LX-EW Scanning range finder
-is attached for navigation.
+
+\subsubsection{Head part}
+
 A Microsoft Kinect at the top of the robot is used for
 detecting and following persons.
+For speech recognition, a directional microphone,
+ATM57a made by audio-technica corporation, is attached
+upon the Kinect.
 
 
 \subsubsection{Manipulator part}
 
-The robot has two manipulators, which are called arms hereafter.
-Each arm has 
+The robot has two arms and each arm has a hand.
+They are shown in Fig.~\ref{fig:manipulators}.
+The shapes of the left and right hands are different from each other.
+The right hand, which equips two square plate for sandwiching,
+is used for grabbing a snack bag or a round bottle.
+The left hand can pinch an object with its tips,
+or grab one with the inner side.
+
 
 \begin{figure}[h]
 \begin{minipage}{21em}
@@ -104,8 +125,6 @@ Each arm has
 \end{minipage}
 \end{figure}
 
-Two kinds of hand are attached to
-the manipulators respectively.
 
 \subsubsection{Cover of the robot} We have never been prepared.
 
@@ -131,10 +150,14 @@ which is a simple Python script.
 	\end{center}
 \end{figure}
 
-\section{Innovative technology and scientific contribution}
+\subsection{Applicability of the robot in the real world}
+
+\section{Innovative technology and scientific contribution}\label{sec:contribution}
+
+\subsection{Scientific interest}
 
 Our basic idea to realize home-care robots is that they
-should try something even if they have certain information
+should try something even if they do not have certain information
 what they should do. Some mistakes will occur when the robot
 acts without certain information.
 However, a decision making rule that permits mistakes will make
@@ -143,18 +166,24 @@ perfect information.
 
 We also think that decision making with this loose policy
 will generate a natural communication between a robot and its owners.
-For example, a person want to eat cookies
-with a high probability when the owner asks his/her robot to bring cookies.
+For example, when the owner asks his/her robot to bring cookies,
+he/she wants to eat cookies with a high probability.
 However, there is some some possibility that the owner
+only wants to fill his/her stomach.
+In the real life, there are some incidents
+(e.g. a construction noise) that
+makes the robot never be able to understand the word ``cookies.''
+We think that the robot should start moving in that case
+even if it does not have certain
 
-\section{Externally available components}
+\subsection{Externally available components}
 
 We have developed a ROS module for servo motors made
 by Kondo Kagaku Co., Ltd.
 as our first contribution\cite{hayashibara_kondo}.
 We will publish our software through GitHub.
 
-\section{Applicability of the robot in the real world}
+\section{Conclusion}\label{sec:conclusion}
 
 \bibliographystyle{splncs03}
 \bibliography{../bibfiles/eng,../bibfiles/url}
