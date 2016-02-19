@@ -3,8 +3,8 @@ tdp2016.pdf: tdp2016.dvi
 
 tdp2016.dvi: *.tex
 	latex tdp2016.tex
-	bibtex tdp2016.aux
-	latex tdp2016.tex
+	#bibtex tdp2016.aux
+	#latex tdp2016.tex
 	latex tdp2016.tex
 
 clean:
