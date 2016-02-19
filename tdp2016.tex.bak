@@ -70,7 +70,7 @@ Each background of the staff is as follows.
 	\item \textbf{Assoc. Prof. Ryuichi Ueda} heads this team.
 		He takes care of navigation and decision making \cite{ueda2015}.
 		He consecutively participated in RoboCup Sony four-legged league
-		(standard platform league)
+		(starndard platform league)
 		from 2001 Seattle \cite{arai2002tdp}
 		as a student to 2007 Atlanta as an assistant professor.
 		His team, Team ARAIBO, earned podiums from RoboCup 2003 to 2005
@@ -144,7 +144,7 @@ The left hand can pinch an object with its tips,
 or grab one with the inner side.
 Figure~\ref{fig:joints} illustrates actuator arrangement of an arm.
 The center part of the arm is composed of boxy assembled carbon plates
-and actuators that are arranged horizontally.
+and acctuators that are arranged horizontally.
 This lightweight structure ensures a large work space with small torque
 of actuators.
 This part is lifted and swung by the slider mechanism shown in
@@ -347,7 +347,7 @@ Irie, K., Tomono, M.: {Road recognition from a single image using prior
   information}. In: Proc. of IEEE/RSJ IROS. pp. 1938--1945 (2013)
 
 \bibitem{lima2005}
-Lima, P., Cust\'odio, L.: {RoboCup 2004 Overview}. In: Nardi, D., et~al. (eds.)
+Lima, P., Custo'dio, L.: {RoboCup 2004 Overview}. In: Nardi, D., et~al. (eds.)
   RoboCup 2004: Robot Soccer World Cup VIII. pp. 1--17 (2005)
 
 \bibitem{matsuyama2015}
