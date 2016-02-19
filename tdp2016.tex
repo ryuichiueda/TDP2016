@@ -47,6 +47,15 @@ Chiba Institute of Technology.
 The aim of this team is integration and presentation
 of research progresses in our department.
 
+Our team is made up of three (associate) professors and
+one researcher, and eight graduate/undergraduate students.
+Each background of the staff is as follows:
+\begin{itemize}
+	\item Prof. Yasuo Hayashibara: 
+	\item Assoc. Prof. Shinya Fujie: 
+	\item Assoc. Prof. Ryuichi Ueda: 
+\end{itemize}
+
 In this paper, we describe our present preparation for
 RoboCup 2016 and for further contribution in the league.
 Our robot is introduced in Sec.~\ref{sec:robot}.
@@ -55,7 +64,8 @@ described in Sec.~\ref{sec:contribution}.
 We conclude this description paper in Sec.~\ref{sec:conclusion}.
 
 \section{Robot}\label{sec:robot}
-The robot, which has no name, is mainly composed of a commercial mobile robot,
+The robot, shown in Fig.~\ref{fig:robot},
+is mainly composed of a commercial mobile robot,
 two self-produced manipulators, and a head part that is composed of
 a microphone and Microsoft Kinect.
 
@@ -101,6 +111,7 @@ upon the Kinect.
 
 The robot has two arms and each arm has a hand.
 They are shown in Fig.~\ref{fig:manipulators}.
+We also give some movies in \cite{citba2016}.
 The shapes of the left and right hands are different from each other.
 The right hand, which equips two square plate for sandwiching,
 is used for grabbing a snack bag or a round bottle.
@@ -119,8 +130,8 @@ objects on the floor or higher parts of a shelf.
 
 \begin{figure}[h]
 	\begin{center}
-		\includegraphics[width=0.55\linewidth]{./IMAGE/manipulators.eps}
-		\caption{Manipulators and Hands}
+		\includegraphics[width=0.7\linewidth]{./IMAGE/manipulators.eps}
+		\caption{Manipulators and hands}
 		\label{fig:manipulators}
 	\end{center}
 \end{figure}
@@ -142,32 +153,68 @@ objects on the floor or higher parts of a shelf.
 \end{minipage}
 \end{figure}
 
+Each hand has a camera for object recognition.
+An movie obtained with one of the cameras is shown in
+\texttt{https://youtu.be/XInH9a2ISdA}.
+
 
 \subsubsection{Cover of the robot} We have never been prepared.
 
-\subsection{Software}
+\subsection{Computers and software}
 
-Figure~\ref{fig:rqt_graph} shows the structure of software.
-The robot operating system (ROS) used as the framework of our software.
+\subsubsection{Collaboration of computers}
+The robot has three computers. Decision making is done by
+nodes of the robot operating system (ROS).
+ROS runs on Ubuntu Linux 14.04 LTS, which works on
+a GIGABYTE BRIX PC. A Windows note PC is used for processing
+the data from Microsoft Kinect.
+These two PCs exchange data via A Raspberry Pi.
+The Ubuntu PC and the Windows PC push and pull
+data with the rsync command.
+
+We adopt this loose coupling structure
+so as to reduce our workloads in the early stages.
+Though the Ubuntu PC obtains each cycle of data from Kinect
+after some delay, software for communication becomes
+quite simple. This structure will be changed to
+another tight structure if we must do it.
+
+
+
+\subsubsection{ROS nodes}
+Figure~\ref{fig:rqt_graph} shows the structure of ROS nodes.
 Since we need to construct software in short term, 
 we have reused nodes for Tsukuba Challenge (modules named
 \texttt{orne\_...} in the figure).
 The software for Tsukuba Challenge also contain open source nodes
 (\texttt{move\_base,amcl...}) and nodes for i-Cart mini (\texttt{icart\_...}).
 
-These reused nodes are controlled by
-\texttt{orne\_navigation\_task\_strategy},
-which is a simple Python script.
-
-\begin{figure}[h]
+\begin{figure}[p]
 	\begin{center}
-		\includegraphics[width=1.0\linewidth]{./IMAGE/rqt_graph.eps}
+		\includegraphics[width=0.8\linewidth]{./IMAGE/rqt_graph.eps}
 		\caption{Output of rqt\_graph}
 		\label{fig:rqt_graph}
 	\end{center}
 \end{figure}
 
+\subsubsection{Main controller}
+These reused nodes are controlled by
+\texttt{orne\_navigation\_task\_strategy},
+which is a simple Python script.
+
+\subsubsection{Nodes for arms (in the planning stage)}
+Nodes for the arms and hands are under construction and
+they are not appeared in Fig.~\ref{fig:rqt_graph}.
+We will utilize MoveIt! (\texttt{http://moveit.ros.org/})
+for their control.
+
 \subsection{Applicability of the robot in the real world}
+
+To use this robot in a real home environment,
+we need to make an outer package of this robot at first.
+In this stage, we have checked motions of the mobile robot part
+and the manipulator part separately.
+
 
 \section{Innovative technology and scientific contribution}\label{sec:contribution}
 
@@ -191,7 +238,20 @@ In the real life, there are some incidents
 (e.g. a construction noise) that
 makes the robot never be able to understand the word ``cookies.''
 We think that the robot should start moving in that case
-even if it does not have certain
+even if it does not have certain information.
+Then it should receive feedback from the owner
+by asking questions or by speculative behaviors.
+Though these interactive processes are sometimes laborious,
+we always do that so as to finish various tasks within
+the time limits.
+
+This idea is based on our study in a POMDP
+(partially observable Markov decision process) problem
+\cite{ueda2015}. In this study, problems defined in
+simple state spaces that are spanned several state variables
+are handled. We will tackle extension and application of
+the algorithm to more complicated problems.
+
 
 \subsection{Externally available components}
 
@@ -200,10 +260,20 @@ by Kondo Kagaku Co., Ltd.
 as our first contribution\cite{hayashibara_kondo}.
 We will publish our software through GitHub.
 
-\section{Conclusion}\label{sec:conclusion}
+\section{Conclusion and future work}\label{sec:conclusion}
 
 We have reported our present preparation for
 RoboCup 2016 and for further contribution in the league.
+As described in this paper, there are some unimplemented
+hardware and software. However, we have build our hardware
+and software in this four month with rapidity.
+
+We participate in RoboCup JapanOpen 2016 in this March.
+The outer package of the robot will be prepared before
+this event. Until RoboCup 2016, we will develop
+ROS nodes for each tests.
+
+
 
 \bibliographystyle{splncs03}
 \bibliography{../bibfiles/eng,../bibfiles/url}
